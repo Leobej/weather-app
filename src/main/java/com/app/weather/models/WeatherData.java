@@ -1,0 +1,170 @@
+package com.app.weather.models;
+
+import java.util.List;
+
+public class WeatherData {
+    public double latitude;
+    public double longitude;
+    public double generationtime_ms;
+    public int utc_offset_seconds;
+    public String timezone;
+    public String timezone_abbreviation;
+    public double elevation;
+    public Units current_units;
+    public Current current;
+    public Units hourly_units;
+    public Hourly hourly;
+    public Units daily_units;
+    public Daily daily;
+
+    public static class Units {
+        public String time;
+        public String interval;
+        public String relative_humidity_2m;
+        public String is_day;
+        public String apparent_temperature;
+        public String temperature_2m;
+        public String precipitation;
+        public String rain;
+        public String showers;
+        public String snowfall;
+        public String pressure_msl;
+        public String cloud_cover;
+        public String weather_code;
+        public String surface_pressure;
+        public String wind_gusts_10m;
+        public String wind_speed_10m;
+        public String wind_direction_10m;
+    }
+
+    public static class Current {
+        public String time;
+        public int interval;
+        public int relative_humidity_2m;
+        public int is_day;
+        public double apparent_temperature;
+        public double temperature_2m;
+        public double precipitation;
+        public double rain;
+        public double showers;
+        public double snowfall;
+        public double pressure_msl;
+        public int cloud_cover;
+        public int weather_code;
+        public double surface_pressure;
+        public double wind_gusts_10m;
+        public double wind_speed_10m;
+        public int wind_direction_10m;
+    }
+
+    public static class Hourly {
+        public List<String> time;
+        public List<Double> temperature_2m;
+        public List<Double> wind_speed_10m;
+        public List<Double> rain;
+        public List<Double> showers;
+        public List<Double> snow_depth;
+        public List<Double> snowfall;
+        public List<Double> precipitation;
+        public List<Integer> precipitation_probability;
+        public List<Double> apparent_temperature;
+        public List<Integer> weather_code;
+        public List<Double> visibility;
+        public List<Integer> cloud_cover_mid;
+        public List<Integer> cloud_cover_low;
+        public List<Double> surface_pressure;
+        public List<Double> pressure_msl;
+        public List<Integer> cloud_cover;
+        public List<Integer> cloud_cover_high;
+        public List<Double> dew_point_2m;
+        public List<Integer> relative_humidity_2m;
+        public List<Double> evapotranspiration;
+        public List<Double> et0_fao_evapotranspiration;
+        public List<Double> vapour_pressure_deficit;
+        public List<Double> temperature_80m;
+        public List<Double> temperature_180m;
+        public List<Double> temperature_120m;
+        public List<Double> wind_gusts_10m;
+        public List<Integer> wind_direction_180m;
+        public List<Integer> wind_direction_120m;
+        public List<Integer> wind_direction_80m;
+        public List<Integer> wind_direction_10m;
+        public List<Double> wind_speed_180m;
+        public List<Double> wind_speed_120m;
+        public List<Double> soil_temperature_6cm;
+        public List<Double> soil_temperature_0cm;
+        public List<Double> soil_temperature_54cm;
+        public List<Double> soil_temperature_18cm;
+        public List<Double> wind_speed_80m;
+        public List<Double> soil_moisture_1_to_3cm;
+        public List<Double> soil_moisture_3_to_9cm;
+        public List<Double> soil_moisture_0_to_1cm;
+        public List<Double> soil_moisture_9_to_27cm;
+        public List<Double> soil_moisture_27_to_81cm;
+    }
+
+    public static class Daily {
+        public List<String> time;
+        public List<Double> apparent_temperature_max;
+        public List<Double> apparent_temperature_min;
+        public List<Double> temperature_2m_min;
+        public List<Double> temperature_2m_max;
+        public List<Integer> weather_code;
+        public List<Double> uv_index_clear_sky_max;
+        public List<Double> uv_index_max;
+        public List<Double> sunshine_duration;
+        public List<String> sunset;
+        public List<Double> daylight_duration;
+        public List<String> sunrise;
+        public List<Double> precipitation_sum;
+        public List<Double> snowfall_sum;
+        public List<Double> showers_sum;
+        public List<Double> rain_sum;
+        public List<Integer> precipitation_probability_max;
+        public List<Double> precipitation_hours;
+        public List<Double> shortwave_radiation_sum;
+        public List<Integer> wind_direction_10m_dominant;
+        public List<Double> wind_speed_10m_max;
+        public List<Double> wind_gusts_10m_max;
+        public List<Double> et0_fao_evapotranspiration;
+        public List<Double> temperature_2m_mean;
+        public List<Double> apparent_temperature_mean;
+        public List<Double> cape_mean;
+        public List<Double> cape_min;
+        public List<Integer> cloud_cover_mean;
+        public List<Double> cape_max;
+        public List<Integer> cloud_cover_min;
+        public List<Double> dew_point_2m_mean;
+        public List<Integer> cloud_cover_max;
+        public List<Double> dew_point_2m_max;
+        public List<Double> dew_point_2m_min;
+        public List<Double> pressure_msl_min;
+        public List<Double> pressure_msl_max;
+        public List<Double> pressure_msl_mean;
+        public List<Double> snowfall_water_equivalent_sum;
+        public List<Integer> relative_humidity_2m_min;
+        public List<Integer> relative_humidity_2m_max;
+        public List<Integer> precipitation_probability_min;
+        public List<Integer> relative_humidity_2m_mean;
+        public List<Integer> precipitation_probability_mean;
+        public List<Double> leaf_wetness_probability_mean;
+        public List<Double> growing_degree_days_base_0_limit_50;
+        public List<Double> et0_fao_evapotranspiration_sum;
+        public List<Double> visibility_mean;
+        public List<Double> surface_pressure_min;
+        public List<Double> surface_pressure_mean;
+        public List<Double> surface_pressure_max;
+        public List<Double> updraft_max;
+        public List<Double> visibility_min;
+        public List<Double> visibility_max;
+        public List<Double> wind_speed_10m_mean;
+        public List<Double> wind_speed_10m_min;
+        public List<Double> wind_gusts_10m_min;
+        public List<Integer> winddirection_10m_dominant;
+        public List<Double> wind_gusts_10m_mean;
+        public List<Double> vapour_pressure_deficit_max;
+        public List<Double> wet_bulb_temperature_2m_min;
+        public List<Double> wet_bulb_temperature_2m_max;
+        public List<Double> wet_bulb_temperature_2m_mean;
+    }
+}
