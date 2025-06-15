@@ -4,18 +4,21 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './gradlew clean build'
+                bat '.\\gradlew.bat clean build'
             }
         }
-//         stage('Docker Build') {
-//             steps {
-//                 sh 'docker build -t weather .'
-//             }
-//         }
-//         stage('Run Container') {
-//             steps {
-//                 sh 'docker run -d -p 8085:8085 --name weather weather'
-//             }
-//         }
+
+        // Uncomment when Docker is ready
+        // stage('Docker Build') {
+        //     steps {
+        //         bat 'docker build -t weather .'
+        //     }
+        // }
+
+        // stage('Run Container') {
+        //     steps {
+        //         bat 'docker run -d -p 8085:8085 --name weather weather'
+        //     }
+        // }
     }
 }
