@@ -1,11 +1,21 @@
-tools {
-    jdk 'jdk23'
-}
-
 pipeline {
     agent any
 
+    tools {
+        jdk 'jdk23'
+    }
+
+    environment {
+        PATH = "${tool 'jdk23'}/bin:${env.PATH}"
+    }
+
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Build') {
             steps {
                 bat '.\\gradlew.bat clean build'
