@@ -22,11 +22,15 @@ pipeline {
             }
         }
 
-        stage('Docker Build') {
-            steps {
+    stage('Docker Build') {
+        steps {
+            script {
+                def start = System.currentTimeMillis()
                 bat 'docker build -t weather-backend .'
+                echo "Docker Build took: " + ((System.currentTimeMillis() - start) / 1000) + " seconds"
             }
         }
+    }
 
         stage('Run Container') {
             steps {
