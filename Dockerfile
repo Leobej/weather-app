@@ -1,5 +1,5 @@
 # Use Java 21 JDK image
-FROM openjdk:23-ea-jdk
+FROM openjdk:23-jdk
 
 # Set working directory
 WORKDIR /app
