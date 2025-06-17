@@ -18,7 +18,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat '.\\gradlew.bat clean build'
+                 bat '.\\gradlew.bat clean bootJar'
             }
         }
 
