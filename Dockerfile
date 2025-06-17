@@ -1,14 +1,14 @@
-# Base image with JDK 23
+# Use Java 23 JDK base image
 FROM openjdk:23-jdk
 
-# Working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy only the final JAR (no source, no build system)
-COPY build/libs/*.jar app.jar
+# Copy the Spring Boot JAR into the container
+COPY build/libs/app.jar app.jar
 
-# Expose port used by Spring Boot
+# Expose port used by Spring Boot app
 EXPOSE 8085
 
-# Start the app
+# Command to run the app
 ENTRYPOINT ["java", "-jar", "app.jar"]
