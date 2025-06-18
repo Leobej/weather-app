@@ -16,21 +16,15 @@ public class WeatherService {
         String url = String.format(
                 "https://api.open-meteo.com/v1/forecast?latitude=%f&longitude=%f" +
                         "&daily=apparent_temperature_max,apparent_temperature_min,temperature_2m_min,temperature_2m_max,weather_code," +
-                        "uv_index_clear_sky_max,uv_index_max,sunshine_duration,sunset,daylight_duration,sunrise,precipitation_sum," +
-                        "snowfall_sum,showers_sum,rain_sum,precipitation_probability_max,precipitation_hours,shortwave_radiation_sum," +
-                        "wind_direction_10m_dominant,wind_speed_10m_max,wind_gusts_10m_max,et0_fao_evapotranspiration" +
-                        "&hourly=temperature_2m,wind_speed_10m,rain,showers,snow_depth,snowfall,precipitation,precipitation_probability," +
-                        "apparent_temperature,weather_code,visibility,cloud_cover_mid,cloud_cover_low,surface_pressure,pressure_msl," +
-                        "cloud_cover,cloud_cover_high,dew_point_2m,relative_humidity_2m,evapotranspiration,et0_fao_evapotranspiration," +
-                        "vapour_pressure_deficit,temperature_80m,temperature_180m,temperature_120m,wind_gusts_10m,wind_direction_180m," +
-                        "wind_direction_120m,wind_direction_80m,wind_direction_10m,wind_speed_180m,wind_speed_120m,soil_temperature_6cm," +
-                        "soil_temperature_0cm,soil_temperature_54cm,soil_temperature_18cm,wind_speed_80m,soil_moisture_1_to_3cm," +
-                        "soil_moisture_3_to_9cm,soil_moisture_0_to_1cm,soil_moisture_9_to_27cm,soil_moisture_27_to_81cm" +
-                        "&current=relative_humidity_2m,is_day,apparent_temperature,temperature_2m,precipitation,rain,showers,snowfall," +
+                        "wind_speed_10m_max,wind_gusts_10m_max,precipitation_sum,sunrise,sunset" +
+                        "&hourly=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,cloud_cover,weather_code," +
+                        "precipitation,rain,showers,snowfall,visibility,wind_gusts_10m,wind_direction_10m,pressure_msl,surface_pressure,is_day" +
+                        "&current=relative_humidity_2m,is_day,apparent_temperature,temperature_2m," +
                         "pressure_msl,cloud_cover,weather_code,surface_pressure,wind_gusts_10m,wind_speed_10m,wind_direction_10m" +
                         "&forecast_days=%d&past_days=%d&timezone=auto",
                 request.latitude, request.longitude, request.forecastDays, request.pastDays
         );
+
 
         WeatherData data = restTemplate.getForObject(url, WeatherData.class);
 
@@ -53,9 +47,6 @@ public class WeatherService {
         summary.isDay = data.current.is_day;
 
         // === visibility from hourly (match time) ===
-        String roundedTime = data.current.time.substring(0, 13) + ":00"; // "2025-06-14T19:00"
-        int index = data.hourly.time.indexOf(roundedTime);
-
         String today = data.current.time.substring(0, 10); // "2025-06-14"
         summary.hourlyForecast = new ArrayList<>();
 
